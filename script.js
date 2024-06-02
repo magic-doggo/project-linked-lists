@@ -12,19 +12,23 @@ class LinkedList {
         this._head = null;
     }
 
-    // let head = new Node();
-
-    prepend(value) { 
+    prepend(value) { //2
         this._head = new Node(value)
         return this._head;
     }
 
-    append(value) {
+    head(value) { //4
+        if (this._head == null) return ("head is null");
+        console.log("head not null")
+        return this._head._value;        
+    }
+
+    append(value) { //1
         if (this._head == null) {
-            console.log("pasta")
+            // console.log("pasta")
             this.prepend(value)
         } else {
-            console.log("tuna")
+            // console.log("tuna")
             let temporary = this._head;
             while (temporary.nextNode != null) {
                 temporary = temporary.nextNode;
@@ -40,6 +44,8 @@ test.append("append1")
 test.append("append2")
 
 console.log(test)
+console.log(test.head())
+// console.log(head)
 
 
 
