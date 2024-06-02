@@ -1,7 +1,7 @@
 class Node {
-    constructor(value=null, nextNode=null) {
-        this._value = value; 
-        // this._nextNode = nextNode;
+    constructor(value=null, next=null) {
+        this.value = value; 
+        this.next = next;
     }    
 }
 
@@ -9,32 +9,35 @@ class Node {
 class LinkedList {
     constructor(fullList) {
         // this._fullList = fullList;
-        this._head = null;
+        this.head = null;
+        this.length = 0;
     }
 
     prepend(value) { //2
-        this._head = new Node(value)
-        return this._head;
+        this.head = new Node(value, this.head)
+        this.length += 1;
+        return this.head;
     }
 
-    head(value) { //4
-        if (this._head == null) return ("head is null");
+    head() { //4
+        if (this.head == null) return ("head is null");
         console.log("head not null")
-        return this._head._value;        
+        return this.head.value;        
     }
 
     append(value) { //1
-        if (this._head == null) {
-            // console.log("pasta")
+        if (this.head == null) {
             this.prepend(value)
         } else {
-            // console.log("tuna")
-            let temporary = this._head;
-            while (temporary.nextNode != null) {
-                temporary = temporary.nextNode;
+            let temporary = this.head;
+            while (temporary.next != null) {
+                // console.log(temporary._next)
+                temporary = temporary.next;
             }
-            temporary.nextNode = new Node(value);
+            temporary.next = new Node(value);
+            this.length += 1;
         }
+
     }
 }
 
@@ -44,8 +47,9 @@ test.append("append1")
 test.append("append2")
 
 console.log(test)
-console.log(test.head())
-// console.log(head)
+console.log(test.length)
+// console.log(test.size())
+// console.log(test.head()) //test 4
 
 
 
