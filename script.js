@@ -21,7 +21,7 @@ class LinkedList {
 
     head() { //4
         if (this.head == null) return ("head is null");
-        console.log("head not null")
+        // console.log("head not null")
         return this.head.value;        
     }
 
@@ -42,6 +42,16 @@ class LinkedList {
     size() { //3
         return this.length
     }
+
+    tail() {
+        if (this.head == null ) return ("head ;is null");
+        console.log("head is not null")
+        let temporary = this.head
+        while (temporary.next!= null) {
+            temporary = temporary.next;
+        }
+        return temporary.value;
+    }
 }
 
 let test = new LinkedList;
@@ -51,6 +61,7 @@ test.append("append2")
 
 console.log(test)
 
+console.log(test.tail())
 
 // test.append("append1") //test11
 // test.prepend("prepend1") //test 2
