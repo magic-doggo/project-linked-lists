@@ -14,7 +14,7 @@ class LinkedList {
     }
 
     prepend(value) { //2
-        this.head = new Node(value, this.head)
+        this.head = new Node(value, this.head) // is this fine or should I store the value of head in another variable and use that?
         this.length += 1;
         return this.head;
     }
@@ -31,13 +31,16 @@ class LinkedList {
         } else {
             let temporary = this.head;
             while (temporary.next != null) {
-                // console.log(temporary._next)
                 temporary = temporary.next;
             }
             temporary.next = new Node(value);
             this.length += 1;
         }
 
+    }
+    
+    size() { //3
+        return this.length
     }
 }
 
@@ -47,8 +50,11 @@ test.append("append1")
 test.append("append2")
 
 console.log(test)
-console.log(test.length)
-// console.log(test.size())
+
+
+// test.append("append1") //test11
+// test.prepend("prepend1") //test 2
+// console.log(test.size()) //test 3
 // console.log(test.head()) //test 4
 
 
