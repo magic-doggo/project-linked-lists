@@ -73,6 +73,17 @@ class LinkedList {
         temporary = null;
         this.length -= 1;
     }
+
+    contains(value) { //8
+        if (this.head == null) return ("head is null");
+        let temporary = this.head;
+        while (temporary != null && temporary.value != value) {
+            console.log(temporary)
+            temporary = temporary.next;
+        }
+        if (temporary == null) return "false";
+        else return true;
+    }
 }
 
 let test = new LinkedList;
@@ -90,6 +101,7 @@ console.log(test)
 // console.log(test.tail()) //test 5
 // console.log(test.at(2)) //test 6
 // test.pop() //test 7
+//console.log(test.contains("append2")) //test 8
 
 
 // const list = {
