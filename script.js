@@ -45,7 +45,7 @@ class LinkedList {
 
     tail() { //5
         if (this.head == null ) return ("head is null");
-        console.log("head is not null")
+        // console.log("head is not null")
         let temporary = this.head
         while (temporary.next!= null) {
             temporary = temporary.next;
@@ -63,6 +63,16 @@ class LinkedList {
         }
         return temporary;
     }
+
+    pop() { //7
+        if (this.head == null) return ("head is null");
+        let temporary = this.head;
+        while (temporary.next != null) {
+            temporary=temporary.next;
+        }
+        temporary = null;
+        this.length -= 1;
+    }
 }
 
 let test = new LinkedList;
@@ -79,7 +89,7 @@ console.log(test)
 // console.log(test.head()) //test 4
 // console.log(test.tail()) //test 5
 // console.log(test.at(2)) //test 6
-
+// test.pop() //test 7
 
 
 // const list = {
