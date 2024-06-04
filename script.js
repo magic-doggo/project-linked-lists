@@ -107,6 +107,19 @@ class LinkedList {
         listAsString += null;
         return listAsString;
     }
+
+    insertAt(value, index) { //11
+        if (this.head == null) return ("head is null");
+        if (index == 0) return this.prepend(value);
+
+
+        let temporary = this.head;
+        for (let i = 1; i < index; i++) {
+            temporary = temporary.next;
+        }
+        temporary.next = new Node(value, temporary.next);
+        this.length += 1;
+    }
 }
 
 let test = new LinkedList;
@@ -114,6 +127,10 @@ test.prepend("prepend1");
 test.append("append1");
 test.append("append2");
 test.append("append3");
+test.append("append4");
+test.append("append5");
+test.append("append6");
+test.append("append7");
 
 console.log(test);
 
@@ -127,6 +144,8 @@ console.log(test);
 //console.log(test.contains("append2")) //test 8
 // console.log(test.find("append2")); //test 9
 // console.log(test.toString()); //test 10
+// test.insertAt("pasta", 2) //test 11
+
 
 
 
