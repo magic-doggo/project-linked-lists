@@ -78,21 +78,32 @@ class LinkedList {
         if (this.head == null) return ("head is null");
         let temporary = this.head;
         while (temporary != null && temporary.value != value) {
-            console.log(temporary)
             temporary = temporary.next;
         }
-        if (temporary == null) return "false";
+        if (temporary == null) return false;
         else return true;
+    }
+
+    find(value) { //9
+        if (this.head == null) return ("head is null");
+        let temporary = this.head;
+        let index = 0;
+        while (temporary != null && temporary.value != value) {
+            temporary = temporary.next;
+            index += 1;
+        }    
+        if (temporary == null) return null;
+        return index;
     }
 }
 
 let test = new LinkedList;
-test.prepend("prepend1")
-test.append("append1")
-test.append("append2")
-test.append("append3")
+test.prepend("prepend1");
+test.append("append1");
+test.append("append2");
+test.append("append3");
 
-console.log(test)
+console.log(test);
 
 // test.append("append1") //test 1
 // test.prepend("prepend1") //test 2
@@ -102,6 +113,7 @@ console.log(test)
 // console.log(test.at(2)) //test 6
 // test.pop() //test 7
 //console.log(test.contains("append2")) //test 8
+// console.log(test.find("append2")); //test 9
 
 
 // const list = {
