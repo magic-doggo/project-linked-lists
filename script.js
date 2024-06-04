@@ -45,7 +45,6 @@ class LinkedList {
 
     tail() { //5
         if (this.head == null ) return ("head is null");
-        // console.log("head is not null")
         let temporary = this.head
         while (temporary.next!= null) {
             temporary = temporary.next;
@@ -67,10 +66,10 @@ class LinkedList {
     pop() { //7
         if (this.head == null) return ("head is null");
         let temporary = this.head;
-        while (temporary.next != null) {
+        while (temporary.next.next != null) {
             temporary=temporary.next;
         }
-        temporary = null;
+        temporary.next = null;
         this.length -= 1;
     }
 
@@ -110,15 +109,37 @@ class LinkedList {
 
     insertAt(value, index) { //11
         if (this.head == null) return ("head is null");
+        if (index < 0 || index > this.length) { 
+            return ("inexistent index")
+        } 
         if (index == 0) return this.prepend(value);
 
 
         let temporary = this.head;
-        for (let i = 1; i < index; i++) {
+        for (let i = 1; i < index; i++) { //start at 1 so we stop 1 before index
             temporary = temporary.next;
         }
         temporary.next = new Node(value, temporary.next);
         this.length += 1;
+    }
+
+    removeAt(index) { //12
+        console.log(this.length)
+        if (this.head == null) return ("head is null");
+        if (index < 0 || index > this.length-1) {
+            return ("inexistent index");
+        } 
+
+        if (index == (this.length -1)) {
+            this.pop();
+        } else {
+            let temporary = this.head;
+            for (let i = 1; i < index; i++) {
+                temporary = temporary.next;
+            }
+            temporary.next = temporary.next.next;
+            this.length -= 1;
+        }
     }
 }
 
@@ -126,12 +147,7 @@ let test = new LinkedList;
 test.prepend("prepend1");
 test.append("append1");
 test.append("append2");
-test.append("append3");
-test.append("append4");
-test.append("append5");
-test.append("append6");
-test.append("append7");
-
+test.removeAt(2)
 console.log(test);
 
 // test.append("append1") //test 1
@@ -145,6 +161,7 @@ console.log(test);
 // console.log(test.find("append2")); //test 9
 // console.log(test.toString()); //test 10
 // test.insertAt("pasta", 2) //test 11
+// test.removeAt(2)
 
 
 
