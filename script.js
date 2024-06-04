@@ -65,6 +65,10 @@ class LinkedList {
 
     pop() { //7
         if (this.head == null) return ("head is null");
+        if (this.head.next == null) {
+            this.length -= 1;
+            return this.head = null;
+        }
         let temporary = this.head;
         while (temporary.next.next != null) {
             temporary=temporary.next;
@@ -146,8 +150,7 @@ class LinkedList {
 let test = new LinkedList;
 test.prepend("prepend1");
 test.append("append1");
-test.append("append2");
-test.removeAt(2)
+test.append("append2")
 console.log(test);
 
 // test.append("append1") //test 1
@@ -161,7 +164,7 @@ console.log(test);
 // console.log(test.find("append2")); //test 9
 // console.log(test.toString()); //test 10
 // test.insertAt("pasta", 2) //test 11
-// test.removeAt(2)
+// test.removeAt(2) //test 12
 
 
 
