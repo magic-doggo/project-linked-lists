@@ -95,6 +95,18 @@ class LinkedList {
         if (temporary == null) return null;
         return index;
     }
+
+    toString() { //10
+        if (this.head == null) return ("head is null");
+        let temporary = this.head;
+        let listAsString = "";
+        while (temporary != null) {
+            listAsString += ((temporary.value) + " -> ");
+            temporary = temporary.next;
+        }
+        listAsString += null;
+        return listAsString;
+    }
 }
 
 let test = new LinkedList;
@@ -114,6 +126,8 @@ console.log(test);
 // test.pop() //test 7
 //console.log(test.contains("append2")) //test 8
 // console.log(test.find("append2")); //test 9
+// console.log(test.toString()); //test 10
+
 
 
 // const list = {
